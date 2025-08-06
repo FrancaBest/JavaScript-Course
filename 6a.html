@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 6 exercise</title>
+</head>
+<body>
+  <script>
+    const hour = 23;
+    const name = "Franca";
+
+    if (hour >= 6 && hour <= 12) {
+      console.log(`Good morning ${name}!`);
+      
+    } else if (hour >= 13 && hour <= 17) {
+      console.log(`Good afternoon ${name}!`);
+      
+    } else {
+      console.log(`Good night ${name}!`);
+      
+    }
+
+    const age = 5;
+    const isHolidy = true;
+     if ((age <= 6 || age >= 65) && !isHolidy) {
+      console.log('Discount');
+      
+     } else {
+      console.log('No discount ');
+     }
+
+     const randomNumber = Math.random();
+     let result;
+
+     if (randomNumber < 0.5) {
+      result = 'heads';
+     } else {
+      result = 'tails';
+     }
+
+     const guess = 'heads';
+     if (guess === result) {
+      console.log('You win!');
+     } else {
+      console.log('You lose!');
+      
+     }
+
+     // ternary operator
+     randomNumber < 0.5 ? 'heads' : 'tails';
+
+     console.log(guess === result ? 'You win!' : 'You lose!');
+  </script>
+</body>
+</html>

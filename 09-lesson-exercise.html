@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>09 lesson exercise</title>
+</head>
+<body>
+ <button>9a</button>
+ <button class="js-button">9b</button> <br><br>
+
+ <button onclick="
+ document.querySelector('.js-text-update')
+ .innerHTML = 'You chose: heads';
+ ">heads</button>
+
+ <button onclick="
+ document.querySelector('.js-text-update')
+ .innerHTML = 'You chose: tails';
+ ">tails</button>
+ <p class="js-text-update"></p>
+
+ <input class="js-input-text" onkeydown="enterKey(event)">
+ <button onclick="
+ updateNameDisplay(event);
+ ">Submit</button>
+ <p class="js-input-display"></p>
+
+ <input placeholder="type here" class="js-input" onkeyup="
+ const inputElement = document.querySelector('.js-input')
+document.querySelector('.js-instand-typing').innerHTML = inputElement.value
+ ">
+ <p class="js-instand-typing"></p>
+
+ <script>
+  function typing(event) {
+   if (event.key === 'typing') {
+    updateNameDisplay();
+   }
+  }
+
+
+  function enterKey(event) {
+   if (event.key === 'Enter') {
+    updateNameDisplay();
+   }
+  }
+
+  function updateNameDisplay() {
+   const inputElement = document.querySelector('.js-input-text');
+ document.querySelector('.js-input-display')
+ .innerHTML = `Your name is: ${inputElement.value}`;
+  }
+    console.log(document.querySelector('button'));
+    document.querySelector('.js-button').innerHTML = '9b done!';
+ </script>
+</body>
+</html>
