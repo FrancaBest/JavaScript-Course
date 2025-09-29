@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Functions</title>
+</head>
+<body>
+  <script>
+    /*
+    
+    //Advantages:
+    // 1. Easier to read
+    // 2. Hoisting - calling a function before declaring it.
+    function greeting() {
+      console.log('hello');
+      
+    }
+
+    // calling the function || (running the function)
+    greeting();
+
+    // Functions are values - we can save it in a variable -
+    // we can save a value in an object
+    // What else can we do with a value? - pass a value into a function
+    // whatever we can do with values we can also do with function.
+    // Types of values:
+    // numbers, strings, booleans
+
+    const num = 2;
+    const function1 = function() {
+      console.log('hello2');
+      
+    }
+    console.log(function1);
+    console.log(typeof function1);
+    function1()
+    
+    const object1 = {
+      num: 2,
+      //Method - (function saved inside an object)
+      fun: function() {
+        console.log('hello3');
+        
+      }
+    };
+    
+    object1.fun();
+
+    function display(param) {
+      console.log(param);
+      
+    }
+    display(2); //Passing a value into a function.
+
+    function run(param) {
+      param();
+    }
+    run(function() {
+      console.log('hello4');
+      //Passing a function into another function - Callback function or callback.
+    });
+
+*/
+
+/*
+    // Practical examples of Functions as values
+    //setTimeout() - allows us to run a funtion in the future
+
+   // 1. A function we want to run in the future.
+   // 2. How long to wait before running this function - (a number in milliseconds) 1000 milliseconds = 1 second
+   setTimeout(function() {
+    console.log('timeout');
+    console.log('timeout2');
+    
+    
+   }, 3000);
+   console.log('next line');
+   
+  // Asynchronous Code - means
+  // - won't wait for a line to finish before going to the next line
+
+  // Advantage of asynchronous code
+  // - it doesn't block our code for 3 seconds e.g setting an alarm clock, you're not gonna stop and wait fot the timer to finish, but you get busy while the alarm runs. Asynchronous code is the exact concept
+
+  // Synchronous Code - means
+  // - will wait for one line to finish before going to the next line
+
+  // setInterval() - it will keep running a function in the future after a certain period of time.
+  setInterval(function() {
+    console.log('interval');
+    
+  }, 3000);
+  console.log('next line 2');
+  
+   */
+
+   //.forEach() is the preferred way to loop through an array
+   // .forEach does not have continue and break, we can use return to continue, but if we need to break then it better to use the regular for loop.
+   [
+    'make dinner',
+    'wash dishes',
+    'watch youtube'
+   ].forEach(function(value, index) {
+    if (value === 'wash dishes') {
+      return;
+    }
+    console.log(index);
+    
+     console.log(value);
+   });
+   
+
+   /*
+   [
+    'do projects',
+    'go shopping',
+    'do laundry'
+   ].forEach(function(items, index) {
+    console.log(index);
+
+    console.log(items); 
+   })
+    */
+
+    const regularFunction = function(param, param2) {
+      console.log('hello');
+      return 5;
+    }
+  const arrowFunction = (param, param2) => {
+      console.log('hello');
+      return 5;
+      
+    }
+    arrowFunction();
+
+    const oneParam = (param) => {
+
+    }
+  </script>
+</body>
+</html>

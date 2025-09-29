@@ -7,7 +7,7 @@
 </head>
 <body>
   <button onclick="
-  console.log(`Cart quantity: ${cartQuantity}`);
+  displayCartQuantity();
 ">Show Quantity</button>
 
 <button onclick="
@@ -46,44 +46,58 @@
   cartQuantity = 0;
   console.log('Cart was reset.');
   console.log(`Cart quantity: ${cartQuantity}`);
+  displayCartQuantity();
 ">Reset Cart</button>
+
+<p class="js-display-cart-quantity"></p>
 
 <script>
   let cartQuantity = 0;
 
+  displayCartQuantity();
+
   function updateCartQuantity(change) {
     if (cartQuantity + change > 10) {
       alert('The cart is full');
-
-    } else if (cartQuantity + change < 0) {
-      alert('Not enough items in the cart');
-
-    } else {
-      cartQuantity += change;
-      console.log(`Cart quantity: ${cartQuantity}`);
-    }
-  }
-    </script>
+      return;
+    } 
     
-  <!-- Variable Re-assignment Shortcuts
-   += 2 variable = variable + 2
-   -= 2 variable = variable - 2
-   *= 2 variable = variable * 2
-   /= 2 variable = variable / 2
-   ++ 2 variable = variable + 1
-   -- 2 variable = variable - 2
+    if (cartQuantity + change < 0) {
+      alert('Not enough items in the cart');
+      return;
+    } 
 
-   Naming convention
-   * camelCase is the standard naming convention for javescript - cartQuantity
+      cartQuantity += change;
 
-   * PascalCase - same as camelCase except we capitalize first word - CartQuantity
-   In javaScript, there is one feature where we use PascalCase
+  displayCartQuantity(); 
+  }
 
-   * Kebab-case - cart-quantity - use in HTML and CSS and seperating files names e.g (05-variable-html)
+  function displayCartQuantity() {
+    document.querySelector('.js-display-cart-quantity')
+    .innerHTML = `Cart quantity: ${cartQuantity}`;
+  }
 
-   * snake_case - used in other  languages
 
-  -->
+ /* 
+    Variable Re-assignment Shortcuts
+      += 2 variable = variable + 2
+      -= 2 variable = variable - 2
+      *= 2 variable = variable * 2
+      /= 2 variable = variable / 2
+      ++ 2 variable = variable + 1
+      -- 2 variable = variable - 2
+
+    Naming convention
+      *camelCase is the standard naming convention for javescript - cartQuantity
+
+      * PascalCase - same as camelCase except we capitalize first word - CartQuantity
+      In javaScript, there is one feature where we use PascalCase
+
+      * Kebab-case - cart-quantity - use in HTML and CSS and seperating files names e.g (05-variable-html)
+
+      * snake_case - used in other  languages
+*/
+    </script> 
 
 </body>
 </html>

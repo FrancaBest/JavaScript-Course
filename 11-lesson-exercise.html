@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arry lesson exercise</title>
+</head>
+<body>
+  <script>
+    const nums = [10, 20, 30];
+    nums[2] = 99;
+    console.log(nums);
+    
+    function getLastValue(array) {
+      const lastIndex = array.length - 1;
+      return array[lastIndex];
+    }
+    console.log(getLastValue([1, 20, 22, 24, 5]));
+    console.log(getLastValue(['hi', 'hello', 'hey']));
+
+    
+    function arraySwitch(array) {
+      const lastIndex = array.length - 1;
+
+      //saving the values of the array
+      const lastValue = array[lastIndex];
+      const firstValue = array[0];
+
+      //switching the values of the array
+      array[0] = lastValue;
+      array[lastIndex] = firstValue;
+
+      return array;
+      
+     } 
+    console.log(arraySwitch([1, 20, 22, 24, 5]));
+    console.log(arraySwitch(['hi', 'hello', 'good']));
+    
+    // for (let i = 0; i <= 10; i += 2) {
+    //   console.log(i); 
+    // }
+
+    // for (let i = 5; i >= 0; i--) {
+    //   console.log(i);
+      
+    // }
+   
+   /*
+   *same value as the for loop but using while loop instead
+   let i = 0;
+
+    while (i < 10) {
+      i += 2
+      console.log(i);  
+    }
+
+    let i = 5;
+    while (i > 0) {
+      i--;
+      console.log(i);
+    }
+      */
+
+      
+       /*
+   Accumulator Pattern
+   1. Create a variable - to store the result.
+   2. Loop through the array and update the result. 
+   */
+
+   const num1 = [1, 2, 3]
+   const result = [];
+  for (let i = 0; i < num1.length; i++) {
+   result.push(num1[i]) 
+  } 
+  console.log(result);
+  
+
+ const addedNum = [];
+  for (let i = 0; i < num1.length; i++) {
+    addedNum.push(num1[i] + 1);
+  }
+  console.log(addedNum);
+
+
+  function addOne(array) {
+    const result = [];
+
+    for (let i = 0; i < array.length; i++) {
+      result.push(array[i] + 1);
+    }
+      return result;
+  }
+  console.log(addOne([1, 2, 3]));
+  console.log(addOne([-2, -1, 0, 99]));
+
+  function addNum(array, num) {
+    const result = [];
+    for (let i = 0; i < array.length; i++) {
+      result.push(array[i] + num);
+    }
+    return result;
+  }
+  console.log(addNum([1, 2, 3], 2));
+  console.log(addNum([1, 2, 3], 3));
+  console.log(addNum([-2, -1, 0, 99], 2));
+  
+  function addArrays(array1, array2) {
+    const result = [];
+    for (let i = 0; i < array1.length; i++) {
+      result.push(array1[i] + array2[i] )
+    }
+    return result;
+  }
+  console.log(addArrays([1, 1, 2], [1, 1, 3]));
+  console.log(addArrays([1, 2, 3], [4, 5, 6]));
+  
+  function countPositive(nums) {
+    const result = [];
+    for (let i = 0; i < nums.length; i++) {
+      if (nums[i] > 0) {
+        result.push(nums[i]);
+      }
+    }
+    return result.length;
+  }
+  console.log(countPositive([1, -3, 5]));
+  console.log(countPositive([-2, 3, -5, 7, 10]));
+  
+  function minMax(nums) {
+    //set the value of min and max num
+    const  result = {
+      min: null,
+      max: null
+    };
+
+    for (let i = 0; i < nums.length; i++) {
+      const value = nums[i];
+
+      // if the vaule is less than the min
+      // update the min
+      if (result.min === null || value < result.min) {
+        result.min = value;
+      }
+
+      // if the vaule is greater than the max
+      // update the max
+      if (result.max === null || value > result.max) {
+        result.max = value;
+      }
+    }
+
+    return result;
+  }
+  console.log(minMax([1, -3, 5]));
+  console.log(minMax([-2, 3, -5, 7, 10]));
+
+  console.log(minMax([]));
+  console.log(minMax([3]));
+
+  function countWords(words) {
+    
+    // Initialize a counter to keep track of occurances.
+    // Loop through each character in the string.
+    // Increment the counter each time the character matches the target character.
+
+    const result = {
+      apple: 0,
+      grape: 0
+    }
+
+    for (let i = 0; i < words.length; i++) {
+      const value = words[i];
+      if (!result[value]) {
+        result[value] += 1;
+      } else {
+        result[value]++;
+      }
+     
+    }
+    return result;
+  }
+  console.log(countWords(['apple', 'grape', 'apple', 'apple']));
+  
+  // 11 lesson exercise (part 2)
+
+  let phrase = ['hello', 'world', 'search', 'good', 'search'];
+  let index = -1;
+
+  for (let i = 0; i < phrase.length; i++) {
+    if (phrase[i] === 'search') {
+      
+      index = i;
+      break;
+    }
+  }
+  console.log(index);
+
+  phrase = ['not', 'found'];
+  index = -1;
+
+  for (let i = 0; i < phrase.length; i++) {
+    if (phrase[i] === 'search') {
+      index = i;
+
+    }
+  }
+  console.log(index);
+  
+
+function findIndex(array, word) {
+ 
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === word) {
+      return i;
+    }
+  }
+  return -1;
+}
+  console.log(findIndex(['green', 'red', 'blue', 'red'], 'red'));
+  console.log(findIndex(['green', 'red', 'blue', 'red'], 'yellow'));
+
+
+  function removeEgg(foods) {
+    const foodsCopy = foods.slice(); 
+    // reverse array
+    const reversedFoods = foodsCopy.reverse();
+
+    let result = [];
+    let removeEggs = 0;
+
+    for (let i = 0; i < foods.length; i++) {
+      if (reversedFoods[i] === 'egg' && removeEggs < 2) {
+       removeEggs++;
+        continue;  
+     } 
+      result.push(reversedFoods[i]);
+      
+    }
+    return result.reverse();
+  }
+  
+  const foods = ['egg', 'apple', 'egg', 'egg', 'ham'];
+  console.log(removeEgg(foods));
+  console.log(foods);
+  
+  
+
+  for (let i = 1; i <= 20; i++) {
+    
+
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log('FizzBuzz');
+      
+    } else if (i % 3 === 0) {
+      console.log('Fizz');
+      
+    } else if (i % 5 === 0) {
+      console.log('Buzz');
+      
+    } else {
+      console.log(i);
+    }
+  }
+  
+  
+  function findIndex(array, word) {
+ 
+ for (let i = 0; i < array.length; i++) {
+   if (array[i] === word) {
+     return i;
+   }
+ }
+ return -1;
+}
+
+function unique(array) {
+  const result = [];
+  for (let i = 0; i < array.length; i++) {
+   const word = array[i];
+
+   if (findIndex(result, word) === -1) {
+    result.push(word);
+   }
+  }
+  return result;
+}
+console.log(unique(['green', 'red', 'blue', 'red']));
+console.log(unique(['red', 'green', 'red']));
+  
+  </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App</title>
+</head>
+<body>
+  <button onclick="
+   startButton();
+    " class="js-button"
+    >Start</button>
+
+    <button onclick="
+    addToCartButton();
+    " class="js-add-cart-button">Add to cart</button>
+    <p class="add-text"></p>
+
+    <button onclick="
+    messages++;
+    ">Add</button>
+
+    <button onclick="
+    messages--;
+    ">Remove</button>
+
+  <script>
+    const add = function() {
+      console.log(2 + 3);
+      }
+    add();
+    add();
+
+    function runTwice(fun) {
+      fun();
+      fun();
+      };
+      
+      runTwice(function() {
+        console.log('12b');  
+      });
+      runTwice(add);
+
+      function startButton() {
+        const button = document.querySelector('.js-button');
+
+        button.innerHTML = 'Loading...';
+
+        setTimeout(function() {
+        button.innerHTML = 'Finished!';
+      }, 1000)
+      }
+
+      function addToCartButton() {
+        let timeOutId;
+        const addText = document.querySelector('.add-text');
+        addText.innerHTML = 'Added';
+
+      clearTimeout(timeOutId);
+
+        timeOutId = setTimeout(function() {
+          addText.innerHTML = '';
+        }, 2000);
+      }
+
+      let messages = 2;
+
+      setInterval(
+        function messageUpdate() {
+          if (document.title === 'App') {
+            document.title = `(${messages}) New messages`;
+          } else {
+            document.title = 'App';
+          };
+
+      }, 1000);
+
+      // lesson 12i 
+      // messages = 0;
+      // setInterval(
+      //   function messagesLimit() {
+      //     if (messages === 0) {
+      //       document.title = 'App';
+      //     }
+      //     if (messages > 0) {
+      //       document.title = `(${messages}) New messages`;
+      //     }
+      //   }, 1000)
+  </script>
+</body>
+</html>

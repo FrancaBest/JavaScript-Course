@@ -1,0 +1,84 @@
+
+      body {
+        background-color: rgb(207, 207, 207);
+      }
+
+      .amazon-button {
+        background-color: rgb(255, 216, 20);
+        color: black;
+        padding: 8px 50px;
+        border-radius: 30px;
+        border: none;
+        font-size: 18px;
+      }
+
+      .amazon{
+        background-color: white;
+        padding: 8px 8px;
+        width: 200px;
+        margin: 10px; 
+      }
+
+      .uber {
+        background-color: white;
+        padding: 10px 40px;
+        width: 220px;
+        display: flex;
+        margin: 10px;
+      }
+
+      .uber-first-button {
+        background-color: black;
+        color: white;
+        font-size: 13px;
+        padding: 10px 20px;
+        margin-right: 20px;
+        margin-left: -20px;
+        border: none;
+        border-radius: 5px; 
+      }
+
+      .uber-second-button {
+        background-color: rgb(238, 234, 234);
+        color: black;
+        font-size: 13px;
+        margin-right: -100px;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 10px;
+      }
+
+      .is-toggled {
+        background-color: black;
+        color: white;
+      }
+
+      .is-toggled2 {
+        background-color: black;
+        color: white;
+      }
+
+      .is-toggled3 {
+        background-color: black;
+        color: white;
+      }
+
+      .toggle-button-background {
+        background-color: white;
+        padding: 10px 20px;
+        width: 300px;
+        display: flex;
+        margin: 10px;
+       
+       
+      }
+
+      .toggle-button {
+        font-size: 15px;;
+        margin-right: 10px;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 10px;
+        width: 100px;
+        cursor: pointer;
+      }
