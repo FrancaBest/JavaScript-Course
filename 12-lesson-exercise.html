@@ -6,14 +6,10 @@
   <title>App</title>
 </head>
 <body>
-  <button onclick="
-   startButton();
-    " class="js-button"
+  <button class="js-button js-button2"
     >Start</button>
 
-    <button onclick="
-    addToCartButton();
-    " class="js-add-cart-button">Add to cart</button>
+    <button class="js-add-cart-button js-add-cart-button2">Add to cart</button>
     <p class="add-text"></p>
 
     <button onclick="
@@ -41,15 +37,25 @@
       });
       runTwice(add);
 
+      document.querySelector('.js-button2')
+        .addEventListener('click', () => {
+          startButton();
+        });
+
       function startButton() {
         const button = document.querySelector('.js-button');
 
         button.innerHTML = 'Loading...';
 
-        setTimeout(function() {
+        setTimeout(() => {
         button.innerHTML = 'Finished!';
       }, 1000)
-      }
+      };
+
+      document.querySelector('.js-add-cart-button2')
+        .addEventListener('click', () => {
+          addToCartButton();
+        });
 
       function addToCartButton() {
         let timeOutId;
@@ -58,10 +64,10 @@
 
       clearTimeout(timeOutId);
 
-        timeOutId = setTimeout(function() {
+        timeOutId = setTimeout(() => {
           addText.innerHTML = '';
         }, 2000);
-      }
+      };
 
       let messages = 2;
 
@@ -86,6 +92,54 @@
       //       document.title = `(${messages}) New messages`;
       //     }
       //   }, 1000)
+
+      // Lesson 12 (part 2) Exercises - Advanced Functions
+
+      const multiply = (a, b) => a * b;
+     console.log(multiply(2, 3));
+     console.log(multiply(7, 10));
+
+     function countPositive(nums) {
+      let positiveNumbers = 0;
+
+      nums.forEach((num) => {
+        if (num > 0) {
+          positiveNumbers++;
+        };
+      });
+      return  positiveNumbers;
+     };
+
+     console.log(countPositive([1, -3, 5]));
+     console.log(countPositive([-2, 3, -5, 7, 10]));
+     
+     function addNum(array, num) {
+      return array.map((value) => value + num);
+     };
+
+     console.log(addNum([1, 2, 3], 2));
+     console.log(addNum([-2, -1, 0, 99], 2));
+     
+    //  function addMoreNum(value, index) {
+    //   return value.map((valueInput) => valueInput + index)
+    //  }
+    //  console.log(addMoreNum([2, 4, 6, 8], 2));
+     
+    function removeEggs(foods) {
+      let removeEgg = 0;
+     return foods.filter((food) => {
+        if (food === 'egg' && removeEgg < 2) {
+          removeEgg++;
+          return;
+        }
+        return foods;
+      })
+  
+    };
+    console.log(removeEggs(['egg', 'apple', 'egg', 'egg', 'ham']));
+
+    
+    
   </script>
 </body>
 </html>
