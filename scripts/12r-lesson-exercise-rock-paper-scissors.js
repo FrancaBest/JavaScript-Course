@@ -41,6 +41,12 @@ updateScoreElement();
     }
 }
 
+document.querySelector('.js-auto-play-button')
+ .addEventListener('click', () => {
+     autoPlay();
+ });
+
+
 document.querySelector('.js-rock-button')
 .addEventListener('click', () => {
     playGame('rock');
@@ -56,21 +62,7 @@ document.querySelector('.js-paper-button')
     playGame('scissors');
  });
 
- document.querySelector('.js-reset-button')
- .addEventListener('click', () => {
-    score.wins = 0;
-    score.losses = 0;
-    score.ties = 0;
-    localStorage.removeItem(score)
-    updateScoreElement();
-    //document.querySelector('.js-result').innerHTML = 0;
- });
-
- document.querySelector('.js-auto-play-button')
- .addEventListener('click', () => {
-     autoPlay();
- });
-
+ 
  document.body.addEventListener('keydown', (event) => {
     if (event.key === 'r') {
         playGame('rock');
@@ -81,7 +73,7 @@ document.querySelector('.js-paper-button')
     } else if (event.key === 'a') {
         autoPlay();
     } else if (event.key === 'Backspace') {
-        
+        showResetConfirmation();
     }
  });
 
@@ -162,4 +154,47 @@ function pickComputerMove() {
      }
 
      return computerMove;
+};
+
+   function resetScore() {
+        score.wins = 0;
+        score.losses = 0;
+        score.ties = 0;
+        localStorage.removeItem(score)
+        updateScoreElement();
+        //document.querySelector('.js-result').innerHTML = 0
+    };
+
+    document.querySelector('.js-reset-score-button')
+        .addEventListener('click', () => {
+        showResetConfirmation();
+    });
+
+function showResetConfirmation() {
+    document.querySelector('.js-reset-confirmation')
+      .innerHTML = `
+      Are you sure you want to reset the score?
+      <button class="js-reset-confirm-yes reset-confirm-button">
+        Yes
+      <button>
+      <button class="js-reset-confirm-yes reset-confirm-button">
+          No
+        <button>
+      `;
+
+      document.querySelector('.js-reset-confirm-yes')
+       .addEventListener('click', () => {
+        resetScore();
+        hindResetConfirmation();
+       });
+
+      document.querySelector('.js-reset-confirm-no')
+       .addEventListener('click', () => {
+        hindResetConfirmation();
+       });
+};
+
+function hindResetConfirmation() {
+    document.querySelector('.js-reset-confirmation')
+     .innerHTML = '';
 }
